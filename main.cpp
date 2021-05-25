@@ -10,14 +10,14 @@ int main() {
             UniquePtr ptr(std::move(ff));
         }*/
 
-        UniquePtr p1;
+        UniquePtr<char> p1;
         //UniquePtr p2(p1); // копирование, нельзя!
-        UniquePtr p2(std::move(p1));
+        UniquePtr<char> p2(std::move(p1));
         p2 = std::move(p1);
 
     p2 = nullptr;
     //p2 = p2; // копирование, не заработает
-    p2 = UniquePtr(nullptr); // перемещение
+    p2 = UniquePtr<char>(nullptr); // перемещение
     p2 = std::move(p2);
     if (p2) {
         std::cout << p2.get() << std::endl;
